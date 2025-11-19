@@ -1,0 +1,17 @@
+services:
+
+  database:
+    container_name: obsidian-api-local-postgresql
+    restart: always
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: obsidian-api-local
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
