@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import Vault, ApiKey
+from .models import Vault, ApiKey, Action
 
 from django.utils import timezone
 
@@ -17,20 +17,25 @@ def vaultList(request):
 def keyList(request):
     all_keys = ApiKey.objects.all()
     keys_list = list(
-        all_keys.values(
-            "key", "created_utc_s", "expiration_utc_s", "user_id", "vault_id"
-        )
+        all_keys.values("key", "created_utc_s", "expiration_utc_s", "vault_id")
     )
     return_list = []
     for orig_key in keys_list:
         return_list.append(
             {
-                "user_id": orig_key["user_id"],
                 "vault_id": orig_key["vault_id"],
                 "created_utc_s": orig_key["created_utc_s"],
                 "active": orig_key["expiration_utc_s"] > timezone.now(),
                 "key": orig_key["key"][:3] + "***",
             }
         )
-
     return JsonResponse(return_list, safe=False)
+
+def actionList(request):
+    all_actions = Action.objects.order_by("created_utc_s").values(
+        "type", "created_utc_s", "status", "path"
+    )
+    action_list = list(
+        all_actions.values("type", "vault", "created_utc_s", "status", "path")
+    )
+    return JsonResponse(action_list, safe=False)

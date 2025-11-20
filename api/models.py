@@ -24,8 +24,8 @@ class ApiKey(models.Model):
         "Date/time for expiration time in seconds",
         auto_now=True,
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     vault = models.ForeignKey(Vault, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
 class Action(models.Model):
@@ -42,3 +42,4 @@ class Action(models.Model):
         auto_now=True,
     )
     vault = models.ForeignKey(Vault, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
