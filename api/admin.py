@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Vault, ApiKey, Action
+
+admin.site.register(Vault)
+admin.site.register(ApiKey)
+admin.site.register(Action)
