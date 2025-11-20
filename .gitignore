@@ -5,9 +5,8 @@ build/
 dist/
 wheels/
 *.egg-info
-db.sqlite3
-
-# Virtual environments
-.venv
-
 pgdata/
+.venv/
+
+# Backend-specific files
+backend/db.sqlite3
