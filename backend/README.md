@@ -76,4 +76,6 @@ POST /api/v1/login
 }
 ```
 
-... which will repond back with a temporary API key. 
+... which will repond back with a temporary API key, as described above.
+
+#### 2. Add a vault

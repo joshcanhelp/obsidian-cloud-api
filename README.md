@@ -1,5 +1,13 @@
 # Obsidian Cloud API
 
+This is a little side project to scratch a technical itch (see below) and learn Django. I'm using the [Django tutorial](https://docs.djangoproject.com/en/5.2/intro/tutorial01/) and [Learn Python in Y Minutes](https://learnxinyminutes.com/python/) to figure it out step by step. **Absolutely no AI was used to write this code.**
+
+**Django impressions so far**
+
+This is *very* batteries included, which is not something I've used since Rails! It's nice having so much out of the box (database migrations and the admin that just builds forms from data models is 🤯) but it means that I'm not learning a lot of actual Python code. 
+
+## Motivation
+
 I've been thinking about an API for Obsidian for a while now, some place on the internet that could accept requests and make changes to your vault. The original idea was running Obsidian on a Linux server of some kind with a web proxy in front of it. I just did a quick search and found a Docker container for it:
 
 https://github.com/linuxserver/docker-obsidian
